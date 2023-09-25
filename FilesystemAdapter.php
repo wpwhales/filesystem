@@ -1,16 +1,16 @@
 <?php
 
-namespace Illuminate\Filesystem;
+namespace WPWhales\Filesystem;
 
 use Closure;
-use Illuminate\Contracts\Filesystem\Cloud as CloudFilesystemContract;
-use Illuminate\Contracts\Filesystem\Filesystem as FilesystemContract;
-use Illuminate\Http\File;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\Conditionable;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Contracts\Filesystem\Cloud as CloudFilesystemContract;
+use WPWhales\Contracts\Filesystem\Filesystem as FilesystemContract;
+use WPWhales\Http\File;
+use WPWhales\Http\UploadedFile;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Str;
+use WPWhales\Support\Traits\Conditionable;
+use WPWhales\Support\Traits\Macroable;
 use InvalidArgumentException;
 use League\Flysystem\FilesystemAdapter as FlysystemAdapter;
 use League\Flysystem\FilesystemOperator;
@@ -345,7 +345,7 @@ class FilesystemAdapter implements CloudFilesystemContract
      * Write the contents of a file.
      *
      * @param  string  $path
-     * @param  \Psr\Http\Message\StreamInterface|\Illuminate\Http\File|\Illuminate\Http\UploadedFile|string|resource  $contents
+     * @param  \Psr\Http\Message\StreamInterface|\WPWhales\Http\File|\WPWhales\Http\UploadedFile|string|resource  $contents
      * @param  mixed  $options
      * @return string|bool
      */
@@ -385,8 +385,8 @@ class FilesystemAdapter implements CloudFilesystemContract
     /**
      * Store the uploaded file on the disk.
      *
-     * @param  \Illuminate\Http\File|\Illuminate\Http\UploadedFile|string  $path
-     * @param  \Illuminate\Http\File|\Illuminate\Http\UploadedFile|string|array|null  $file
+     * @param  \WPWhales\Http\File|\WPWhales\Http\UploadedFile|string  $path
+     * @param  \WPWhales\Http\File|\WPWhales\Http\UploadedFile|string|array|null  $file
      * @param  mixed  $options
      * @return string|false
      */
@@ -404,8 +404,8 @@ class FilesystemAdapter implements CloudFilesystemContract
     /**
      * Store the uploaded file on the disk with a given name.
      *
-     * @param  \Illuminate\Http\File|\Illuminate\Http\UploadedFile|string  $path
-     * @param  \Illuminate\Http\File|\Illuminate\Http\UploadedFile|string|array|null  $file
+     * @param  \WPWhales\Http\File|\WPWhales\Http\UploadedFile|string  $path
+     * @param  \WPWhales\Http\File|\WPWhales\Http\UploadedFile|string|array|null  $file
      * @param  string|array|null  $name
      * @param  mixed  $options
      * @return string|false

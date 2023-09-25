@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Filesystem;
+namespace WPWhales\Filesystem;
 
 use Aws\S3\S3Client;
-use Illuminate\Support\Traits\Conditionable;
+use WPWhales\Support\Traits\Conditionable;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter as S3Adapter;
 use League\Flysystem\FilesystemOperator;
 

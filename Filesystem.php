@@ -1,13 +1,13 @@
 <?php
 
-namespace Illuminate\Filesystem;
+namespace WPWhales\Filesystem;
 
 use ErrorException;
 use FilesystemIterator;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Support\LazyCollection;
-use Illuminate\Support\Traits\Conditionable;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Contracts\Filesystem\FileNotFoundException;
+use WPWhales\Support\LazyCollection;
+use WPWhales\Support\Traits\Conditionable;
+use WPWhales\Support\Traits\Macroable;
 use RuntimeException;
 use SplFileObject;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
@@ -48,7 +48,7 @@ class Filesystem
      * @param  bool  $lock
      * @return string
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \WPWhales\Contracts\Filesystem\FileNotFoundException
      */
     public function get($path, $lock = false)
     {
@@ -67,7 +67,7 @@ class Filesystem
      * @param  bool  $lock
      * @return array
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \WPWhales\Contracts\Filesystem\FileNotFoundException
      */
     public function json($path, $flags = 0, $lock = false)
     {
@@ -110,7 +110,7 @@ class Filesystem
      * @param  array  $data
      * @return mixed
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \WPWhales\Contracts\Filesystem\FileNotFoundException
      */
     public function getRequire($path, array $data = [])
     {
@@ -135,7 +135,7 @@ class Filesystem
      * @param  array  $data
      * @return mixed
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \WPWhales\Contracts\Filesystem\FileNotFoundException
      */
     public function requireOnce($path, array $data = [])
     {
@@ -157,9 +157,9 @@ class Filesystem
      * Get the contents of a file one line at a time.
      *
      * @param  string  $path
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \WPWhales\Contracts\Filesystem\FileNotFoundException
      */
     public function lines($path)
     {

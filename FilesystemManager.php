@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Filesystem;
+namespace WPWhales\Filesystem;
 
 use Aws\S3\S3Client;
 use Closure;
-use Illuminate\Contracts\Filesystem\Factory as FactoryContract;
-use Illuminate\Support\Arr;
+use WPWhales\Contracts\Filesystem\Factory as FactoryContract;
+use WPWhales\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter as S3Adapter;
 use League\Flysystem\AwsS3V3\PortableVisibilityConverter as AwsS3PortableVisibilityConverter;
@@ -22,15 +22,15 @@ use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use League\Flysystem\Visibility;
 
 /**
- * @mixin \Illuminate\Contracts\Filesystem\Filesystem
- * @mixin \Illuminate\Filesystem\FilesystemAdapter
+ * @mixin \WPWhales\Contracts\Filesystem\Filesystem
+ * @mixin \WPWhales\Filesystem\FilesystemAdapter
  */
 class FilesystemManager implements FactoryContract
 {
     /**
      * The application instance.
      *
-     * @var \Illuminate\Contracts\Foundation\Application
+     * @var \WPWhales\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -51,7 +51,7 @@ class FilesystemManager implements FactoryContract
     /**
      * Create a new filesystem manager instance.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param  \WPWhales\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct($app)
@@ -63,7 +63,7 @@ class FilesystemManager implements FactoryContract
      * Get a filesystem instance.
      *
      * @param  string|null  $name
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function drive($name = null)
     {
@@ -74,7 +74,7 @@ class FilesystemManager implements FactoryContract
      * Get a filesystem instance.
      *
      * @param  string|null  $name
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function disk($name = null)
     {
@@ -86,7 +86,7 @@ class FilesystemManager implements FactoryContract
     /**
      * Get a default cloud filesystem instance.
      *
-     * @return \Illuminate\Contracts\Filesystem\Cloud
+     * @return \WPWhales\Contracts\Filesystem\Cloud
      */
     public function cloud()
     {
@@ -99,7 +99,7 @@ class FilesystemManager implements FactoryContract
      * Build an on-demand disk.
      *
      * @param  string|array  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function build($config)
     {
@@ -113,7 +113,7 @@ class FilesystemManager implements FactoryContract
      * Attempt to get the disk from the local cache.
      *
      * @param  string  $name
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     protected function get($name)
     {
@@ -125,7 +125,7 @@ class FilesystemManager implements FactoryContract
      *
      * @param  string  $name
      * @param  array|null  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      *
      * @throws \InvalidArgumentException
      */
@@ -156,7 +156,7 @@ class FilesystemManager implements FactoryContract
      * Call a custom driver creator.
      *
      * @param  array  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     protected function callCustomCreator(array $config)
     {
@@ -167,7 +167,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the local driver.
      *
      * @param  array  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function createLocalDriver(array $config)
     {
@@ -191,7 +191,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the ftp driver.
      *
      * @param  array  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function createFtpDriver(array $config)
     {
@@ -208,7 +208,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the sftp driver.
      *
      * @param  array  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function createSftpDriver(array $config)
     {
@@ -229,7 +229,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the Amazon S3 driver.
      *
      * @param  array  $config
-     * @return \Illuminate\Contracts\Filesystem\Cloud
+     * @return \WPWhales\Contracts\Filesystem\Cloud
      */
     public function createS3Driver(array $config)
     {
@@ -277,7 +277,7 @@ class FilesystemManager implements FactoryContract
      * Create a scoped driver.
      *
      * @param  array  $config
-     * @return \Illuminate\Contracts\Filesystem\Filesystem
+     * @return \WPWhales\Contracts\Filesystem\Filesystem
      */
     public function createScopedDriver(array $config)
     {
@@ -415,7 +415,7 @@ class FilesystemManager implements FactoryContract
     /**
      * Set the application instance used by the manager.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param  \WPWhales\Contracts\Foundation\Application  $app
      * @return $this
      */
     public function setApplication($app)

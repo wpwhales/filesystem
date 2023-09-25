@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Filesystem;
+namespace WPWhales\Filesystem;
 
-use Illuminate\Support\ServiceProvider;
+use WPWhales\Support\ServiceProvider;
 
 class FilesystemServiceProvider extends ServiceProvider
 {

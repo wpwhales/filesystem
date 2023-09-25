@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Filesystem;
+namespace WPWhales\Filesystem;
 
 use Exception;
-use Illuminate\Contracts\Filesystem\LockTimeoutException;
+use WPWhales\Contracts\Filesystem\LockTimeoutException;
 
 class LockableFile
 {
@@ -132,7 +132,7 @@ class LockableFile
      * @param  bool  $block
      * @return $this
      *
-     * @throws \Illuminate\Contracts\Filesystem\LockTimeoutException
+     * @throws \WPWhales\Contracts\Filesystem\LockTimeoutException
      */
     public function getSharedLock($block = false)
     {
@@ -151,7 +151,7 @@ class LockableFile
      * @param  bool  $block
      * @return bool
      *
-     * @throws \Illuminate\Contracts\Filesystem\LockTimeoutException
+     * @throws \WPWhales\Contracts\Filesystem\LockTimeoutException
      */
     public function getExclusiveLock($block = false)
     {
